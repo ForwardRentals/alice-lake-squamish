@@ -1,0 +1,1044 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Alice Lake — A Field Guide to Four Lakes, Squamish BC</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A clear, honest field guide to Alice Lake Provincial Park in Squamish, BC. The 4 Lakes Loop, the campground, the rentals, reviews, and the small details locals know.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f1ea;
+    --paper-deep: #ece6db;
+    --paper-card: #faf6ee;
+    --ink: #1c1917;
+    --ink-soft: #2d2922;
+    --ink-mute: #6a6258;
+    --rule: #cdc6b8;
+    --moss: #2b3a2b;
+    --rust: #8a4a2c;
+    --gold: #b5832e;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--paper); color: var(--ink);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection { background: var(--ink); color: var(--paper); }
+
+  a { color: inherit; text-decoration: none; }
+  .underline-link { border-bottom: 1px solid var(--rule); transition: border-color 0.2s; }
+  .underline-link:hover { border-bottom-color: var(--ink); }
+
+  h1, h2, h3, h4 {
+    font-family: "Fraunces", "Times New Roman", serif;
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+  }
+  h1 { font-size: clamp(2.5rem, 5.5vw, 4.25rem); font-weight: 400; letter-spacing: -0.025em; }
+  h2 { font-size: clamp(1.55rem, 2.8vw, 2.1rem); font-weight: 400; letter-spacing: -0.02em; }
+  h3 { font-size: 1.2rem; font-weight: 500; line-height: 1.3; letter-spacing: -0.01em; }
+  em { font-style: italic; }
+
+  p { margin: 0 0 1rem; color: var(--ink-soft); font-size: 1.04rem; line-height: 1.7; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+  .wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
+
+  /* ---------- COORD RIBBON ---------- */
+  .coords {
+    background: var(--paper-deep);
+    border-bottom: 1px solid var(--rule);
+    font-family: "Inter", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--ink-mute);
+    padding: 0.5rem 0;
+  }
+  .coords .inner {
+    max-width: 1180px; margin: 0 auto;
+    display: flex; justify-content: space-between; gap: 2rem;
+    padding: 0 2rem; flex-wrap: wrap;
+  }
+  .coords span + span { color: var(--ink-soft); }
+
+  /* ---------- NAV ---------- */
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(245,241,234,0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  nav.top .inner {
+    max-width: 1180px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.9rem 2rem;
+  }
+  .mark {
+    font-family: "Fraunces", serif;
+    font-size: 1rem; font-weight: 500;
+    color: var(--ink);
+  }
+  .mark small {
+    display: block; font-family: "Inter", sans-serif; font-weight: 500;
+    font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute); margin-top: 0.15rem;
+  }
+  nav.top .links { display: flex; gap: 1.5rem; }
+  nav.top .links a {
+    font-family: "Inter", sans-serif;
+    font-size: 0.76rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+  nav.top .links a:hover { color: var(--ink); }
+  @media (max-width: 760px) { nav.top .links { display: none; } }
+
+  /* ---------- BREADCRUMB ---------- */
+  .breadcrumb {
+    padding: 1.5rem 0 0.75rem;
+    font-family: "Inter", sans-serif;
+    font-size: 0.78rem;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+  .breadcrumb a { color: var(--ink-mute); }
+  .breadcrumb a:hover { color: var(--ink); }
+  .breadcrumb .sep { padding: 0 0.65rem; color: var(--ink-mute); opacity: 0.6; }
+  .breadcrumb .here { color: var(--ink); font-weight: 500; }
+
+  /* ---------- TITLE BLOCK ---------- */
+  .title-block { padding: 0.75rem 0 1.5rem; }
+  .title-block h1 { margin-bottom: 0.75rem; }
+  .meta-row {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 0.85rem;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+  .stars {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .stars .star { font-size: 1rem; }
+  .stars .num { color: var(--ink); font-weight: 600; }
+  .stars .count { color: var(--ink-mute); font-weight: 400; }
+  .stars .count:hover { color: var(--ink); text-decoration: underline; }
+  .meta-row .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--ink-mute); opacity: 0.5; }
+  .meta-row .difficulty {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-weight: 500;
+  }
+  .meta-row .difficulty::before {
+    content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--moss);
+  }
+  .meta-row .park { color: var(--ink); }
+  .meta-row .park:hover { text-decoration: underline; }
+
+  /* ---------- TABS ---------- */
+  .tabs {
+    margin-top: 1.75rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex; gap: 2rem;
+    overflow-x: auto;
+  }
+  .tabs a {
+    padding: 0.85rem 0 0.95rem;
+    font-family: "Inter", sans-serif;
+    font-size: 0.95rem; font-weight: 500;
+    color: var(--ink-mute);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    white-space: nowrap;
+  }
+  .tabs a:hover { color: var(--ink); }
+  .tabs a.active { color: var(--ink); border-bottom-color: var(--ink); }
+
+  /* ---------- HERO COLLAGE ---------- */
+  .collage {
+    margin: 1.5rem 0 0;
+    display: grid;
+    grid-template-columns: 1.65fr 1fr;
+    gap: 0.5rem;
+    aspect-ratio: 21 / 9;
+    min-height: 380px;
+  }
+  @media (max-width: 760px) {
+    .collage { grid-template-columns: 1fr; aspect-ratio: auto; min-height: 0; }
+  }
+  .tile {
+    background: var(--paper-card);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    color: var(--ink-soft);
+  }
+  .tile-main { grid-row: 1 / -1; padding: 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+  .collage-right { display: grid; grid-template-rows: 1fr 1fr; gap: 0.5rem; }
+  @media (max-width: 760px) {
+    .collage-right { grid-template-rows: 1fr 1fr; aspect-ratio: 21/9; }
+    .tile-main { min-height: 280px; }
+  }
+  .tile svg { display: block; width: 100%; height: 100%; max-height: 360px; }
+  .tile-badge {
+    position: absolute; left: 1rem; bottom: 1rem;
+    background: rgba(245,241,234,0.92);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 0.45rem 0.95rem;
+    font-family: "Inter", sans-serif;
+    font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--ink);
+    display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .tile-badge svg { width: 14px; height: 14px; }
+  .tile-label {
+    position: absolute; right: 1rem; top: 1rem;
+    font-family: "Fraunces", serif; font-style: italic; font-size: 0.85rem;
+    color: var(--ink-mute);
+  }
+
+  /* ---------- STATS ROW ---------- */
+  .stats-row {
+    display: flex; gap: 2.5rem; flex-wrap: wrap;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .stat-item { display: flex; align-items: center; gap: 0.85rem; }
+  .stat-item .num {
+    font-family: "Fraunces", serif;
+    font-size: 2rem; font-weight: 500;
+    color: var(--ink); letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .stat-item .unit { font-size: 0.95rem; color: var(--ink-soft); font-weight: 500; }
+  .stat-item .lab { font-size: 0.78rem; color: var(--ink-mute); margin-top: 0.25rem; }
+  .stat-item .col { display: flex; flex-direction: column; }
+  .stat-item .col .row { display: flex; align-items: baseline; gap: 0.3rem; }
+  .stat-item .ic { color: var(--ink); }
+  .stat-item .ic svg { width: 28px; height: 28px; display: block; }
+
+  /* ---------- OVERVIEW DESCRIPTION ---------- */
+  section.overview { padding: 2.5rem 0 4rem; }
+  section.overview .grid {
+    display: grid; grid-template-columns: 1.65fr 1fr; gap: 4rem;
+  }
+  @media (max-width: 900px) { section.overview .grid { grid-template-columns: 1fr; gap: 2rem; } }
+  section.overview .lead {
+    font-family: "Fraunces", serif;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--ink);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.005em;
+  }
+  section.overview p { font-size: 1.04rem; }
+
+  .sidecard {
+    background: var(--paper-deep);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1.5rem;
+  }
+  .sidecard h4 {
+    font-family: "Inter", sans-serif;
+    font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .sidecard ul { list-style: none; padding: 0; margin: 0; }
+  .sidecard ul li {
+    display: flex; gap: 0.75rem; align-items: baseline;
+    padding: 0.55rem 0;
+    border-top: 1px solid var(--rule);
+    font-size: 0.95rem; color: var(--ink-soft);
+  }
+  .sidecard ul li:first-child { border-top: none; padding-top: 0; }
+  .sidecard ul li .k { color: var(--ink-mute); flex: 0 0 80px; font-size: 0.85rem; }
+  .sidecard ul li .v { color: var(--ink); font-weight: 500; }
+  .sidecard ul li .v em { font-family: "Fraunces", serif; font-weight: 400; }
+
+  /* ---------- WHAT TO EXPECT ---------- */
+  section.expect { padding: 3.5rem 0; border-top: 1px solid var(--rule); }
+  .section-eyebrow {
+    font-family: "Inter", sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600; color: var(--ink-mute);
+    display: block; margin-bottom: 0.9rem;
+  }
+  .section-head { margin-bottom: 2.25rem; max-width: 28ch; }
+  .expect-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 2.5rem;
+  }
+  @media (max-width: 900px) { .expect-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .expect-grid { grid-template-columns: 1fr; } }
+  .expect-row {
+    display: grid; grid-template-columns: 40px 1fr;
+    gap: 1rem; align-items: start;
+  }
+  .expect-row .icon { color: var(--moss); padding-top: 2px; }
+  .expect-row .icon svg { width: 32px; height: 32px; display: block; }
+  .expect-row h3 { font-family: "Inter", sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 0.25rem; }
+  .expect-row p { font-size: 0.92rem; margin: 0; color: var(--ink-soft); line-height: 1.55; }
+
+  /* ---------- RENTALS ---------- */
+  section.water { padding: 3.5rem 0; background: var(--paper-deep); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .water-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+  @media (max-width: 760px) { .water-cards { grid-template-columns: 1fr; } }
+  .water-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1.5rem;
+    display: flex; flex-direction: column;
+  }
+  .water-card .ic { color: var(--moss); margin-bottom: 0.6rem; }
+  .water-card .ic svg { width: 40px; height: 40px; display: block; }
+  .water-card h3 { margin-bottom: 0.45rem; font-family: "Fraunces", serif; font-weight: 500; font-size: 1.2rem; }
+  .water-card p { font-size: 0.95rem; color: var(--ink-soft); margin: 0 0 1rem; }
+  .water-card a.cta {
+    margin-top: auto;
+    display: inline-block;
+    padding: 0.55rem 1.1rem;
+    border: 1px solid var(--ink);
+    font-family: "Inter", sans-serif;
+    font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 600; color: var(--ink);
+    border-radius: 999px;
+    transition: all 0.2s;
+    align-self: flex-start;
+  }
+  .water-card a.cta:hover { background: var(--ink); color: var(--paper); }
+
+  .closure-note {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: rgba(138,74,44,0.08);
+    border-left: 2px solid var(--rust);
+    font-size: 0.93rem; color: var(--ink);
+  }
+  .closure-note strong { display: block; font-family: "Inter", sans-serif; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rust); margin-bottom: 0.35rem; font-weight: 600; }
+
+  /* ---------- LAKES + SEASON ---------- */
+  section.deep { padding: 3.5rem 0; border-top: 1px solid var(--rule); }
+  .lake-rows .lake { display: grid; grid-template-columns: 90px 1fr; gap: 1.5rem; padding: 1.25rem 0; border-top: 1px solid var(--rule); }
+  .lake-rows .lake:last-child { border-bottom: 1px solid var(--rule); }
+  .lake .name { font-family: "Fraunces", serif; font-size: 1.05rem; font-style: italic; color: var(--ink); }
+  .lake .desc { font-size: 0.97rem; color: var(--ink-soft); line-height: 1.6; }
+
+  .seasons {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin-top: 1rem;
+  }
+  @media (max-width: 680px) { .seasons { grid-template-columns: repeat(2, 1fr); } .seasons > div:nth-child(2) { border-right: none; } }
+  .seasons > div { padding: 1rem 1rem 1rem 0; border-right: 1px solid var(--rule); }
+  .seasons > div:last-child { border-right: none; }
+  .seasons .sn { font-family: "Fraunces", serif; font-style: italic; font-size: 1rem; color: var(--ink); margin-bottom: 0.3rem; }
+  .seasons .sd { font-size: 0.87rem; color: var(--ink-soft); line-height: 1.5; }
+
+  /* ---------- REVIEWS ---------- */
+  section.reviews { padding: 4rem 0; border-top: 1px solid var(--rule); background: var(--paper-deep); }
+  .reviews-head {
+    display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .review-summary {
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .review-summary .big {
+    font-family: "Fraunces", serif; font-size: 3.5rem; font-weight: 400;
+    color: var(--ink); letter-spacing: -0.025em; line-height: 0.95;
+  }
+  .review-summary .meta {
+    display: flex; flex-direction: column; gap: 0.2rem;
+  }
+  .review-summary .stars-big { color: var(--gold); font-size: 1.1rem; letter-spacing: 0.1em; }
+  .review-summary .count { font-size: 0.88rem; color: var(--ink-mute); }
+  .leave-review {
+    display: inline-block;
+    padding: 0.65rem 1.25rem;
+    border: 1px solid var(--ink);
+    font-family: "Inter", sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 600; color: var(--ink);
+    border-radius: 999px;
+    transition: all 0.2s;
+  }
+  .leave-review:hover { background: var(--ink); color: var(--paper); }
+  .review-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
+  }
+  @media (max-width: 760px) { .review-grid { grid-template-columns: 1fr; } }
+  .review-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1.5rem;
+  }
+  .review-card .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem; }
+  .review-card .stars { color: var(--gold); font-size: 0.95rem; letter-spacing: 0.08em; }
+  .review-card .when { font-size: 0.78rem; color: var(--ink-mute); font-weight: 500; }
+  .review-card p { font-size: 0.97rem; color: var(--ink-soft); margin: 0 0 0.85rem; line-height: 1.6; }
+  .review-card .who { font-family: "Fraunces", serif; font-style: italic; font-size: 0.95rem; color: var(--ink); }
+  .review-card .src { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; margin-left: 0.5rem; }
+
+  /* ---------- HONEST NOTE ---------- */
+  section.honest { padding: 3.5rem 0; border-top: 1px solid var(--rule); }
+  section.honest p { font-size: 1.02rem; color: var(--ink-soft); }
+  section.honest em { color: var(--ink); }
+
+  /* ---------- FOOTER ---------- */
+  footer.foot { padding: 2.5rem 0 2rem; border-top: 1px solid var(--rule); background: var(--paper-deep); }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; margin-bottom: 1.75rem; }
+  @media (max-width: 680px) { .foot-grid { grid-template-columns: 1fr; } }
+  .foot-grid h4 { font-family: "Inter", sans-serif; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; margin-bottom: 0.7rem; }
+  .foot-grid p { font-size: 0.88rem; color: var(--ink-soft); margin: 0; }
+  .foot-grid ul { list-style: none; padding: 0; margin: 0; }
+  .foot-grid ul li { margin-bottom: 0.4rem; font-size: 0.88rem; }
+  .foot-grid ul li a { color: var(--ink-soft); }
+  .foot-grid ul li a:hover { color: var(--ink); }
+  .foot-bottom { border-top: 1px solid var(--rule); padding-top: 1.25rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.76rem; color: var(--ink-mute); }
+  .foot-bottom em { font-family: "Fraunces", serif; }
+
+  /* ---------- LINE ART (flowing/cursive) ---------- */
+  .line {
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .line.thin { stroke-width: 1.1; }
+</style>
+</head>
+<body>
+
+<!-- ===================== COORDS ===================== -->
+<div class="coords">
+  <div class="inner">
+    <span>49° 47′ N &nbsp;·&nbsp; 123° 07′ W</span>
+    <span>Vol. I &nbsp;·&nbsp; No. 03</span>
+    <span>Squamish &mdash; Sea to Sky</span>
+    <span>Updated Spring 2026</span>
+  </div>
+</div>
+
+<!-- ===================== NAV ===================== -->
+<nav class="top">
+  <div class="inner">
+    <a href="#" class="mark" style="color:var(--ink);">
+      Sea to Sky Trails
+      <small>An entry in Volume I</small>
+    </a>
+    <div class="links">
+      <a href="#overview">Overview</a>
+      <a href="#expect">What to expect</a>
+      <a href="#water">Rentals</a>
+      <a href="#reviews">Reviews</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== BREADCRUMB + TITLE ===================== -->
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="https://seatoskytrails.com/">Field Guide</a>
+    <span class="sep">/</span>
+    <a href="#">British Columbia</a>
+    <span class="sep">/</span>
+    <a href="#">Squamish</a>
+    <span class="sep">/</span>
+    <span class="here">Alice Lake</span>
+  </div>
+
+  <div class="title-block">
+    <h1>Alice Lake</h1>
+    <div class="meta-row">
+      <span class="stars">
+        <span class="star">&#9733;</span>
+        <span class="num">4.8</span>
+        <a href="#reviews" class="count">(47 reviews)</a>
+      </span>
+      <span class="dot"></span>
+      <span class="difficulty">Easy</span>
+      <span class="dot"></span>
+      <a href="#" class="park underline-link">Alice Lake Provincial Park</a>
+      <span class="dot"></span>
+      <span style="color:var(--ink-soft);">Squamish, BC</span>
+    </div>
+
+    <div class="tabs">
+      <a href="#overview" class="active">Overview</a>
+      <a href="#expect">What to expect</a>
+      <a href="#water">Rentals</a>
+      <a href="#season">When to go</a>
+      <a href="#reviews">Reviews</a>
+    </div>
+  </div>
+
+  <!-- ===================== HERO COLLAGE ===================== -->
+  <div class="collage">
+
+    <!-- MAIN TILE: flowing four-lakes illustration -->
+    <div class="tile tile-main">
+      <svg viewBox="0 0 700 380" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <g class="line">
+          <!-- Alice (biggest, center) -->
+          <path d="M 230 245 C 200 215, 360 195, 460 220 C 540 245, 470 290, 380 295 C 290 298, 200 280, 230 245 Z"/>
+          <!-- Stump (top left) -->
+          <path d="M 95 110 C 85 90, 175 80, 215 105 C 240 125, 195 145, 145 140 C 105 135, 85 125, 95 110 Z" class="thin"/>
+          <!-- Fawn (top center) -->
+          <path d="M 320 75 C 310 55, 425 50, 470 80 C 500 105, 435 115, 380 110 C 335 105, 325 90, 320 75 Z" class="thin"/>
+          <!-- Edith (right) -->
+          <path d="M 540 165 C 530 145, 660 145, 700 175 C 720 200, 645 215, 590 210 C 545 205, 525 185, 540 165 Z" class="thin"/>
+
+          <!-- Cursive trail loop -->
+          <path d="M 165 130
+                   C 195 165, 235 195, 290 220
+                   C 320 235, 330 250, 380 260
+                   C 460 270, 540 240, 590 210
+                   C 660 185, 720 170, 695 145
+                   C 660 110, 540 100, 460 90
+                   C 380 85, 320 90, 260 100
+                   C 220 105, 185 110, 165 130"
+                stroke-dasharray="2 6" opacity="0.45"/>
+
+          <!-- Tiny flowing canoe on Alice -->
+          <path d="M 305 260 C 320 270, 380 270, 395 260" class="thin"/>
+          <path d="M 305 260 C 320 264, 380 264, 395 260" class="thin"/>
+
+          <!-- Two flowing trees -->
+          <g transform="translate(50 220)" class="thin">
+            <path d="M 0 60 C -2 45, -1 25, 0 5 C 1 25, 2 45, 0 60"/>
+            <path d="M 0 10 C -10 22, -14 30, -7 32"/>
+            <path d="M 0 10 C 10 22, 14 30, 7 32"/>
+          </g>
+          <g transform="translate(65 280)" class="thin">
+            <path d="M 0 40 C -2 30, -1 15, 0 4 C 1 15, 2 30, 0 40"/>
+            <path d="M 0 8 C -7 16, -9 20, -4 21"/>
+            <path d="M 0 8 C 7 16, 9 20, 4 21"/>
+          </g>
+        </g>
+        <!-- Italic labels -->
+        <g font-family="Fraunces, serif" font-style="italic" font-size="13" fill="#6a6258">
+          <text x="135" y="160">Stump</text>
+          <text x="370" y="135">Fawn</text>
+          <text x="600" y="240">Edith</text>
+          <text x="320" y="318">Alice</text>
+        </g>
+      </svg>
+      <div class="tile-badge">
+        <svg viewBox="0 0 14 14" class="line" aria-hidden="true">
+          <path d="M 7 2 C 3 4, 3 9, 7 12 C 11 9, 11 4, 7 2 Z"/>
+        </svg>
+        Field Map
+      </div>
+    </div>
+
+    <div class="collage-right">
+
+      <!-- TOP RIGHT TILE: alpine view -->
+      <div class="tile" style="padding:1.25rem;">
+        <svg viewBox="0 0 360 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <g class="line">
+            <!-- Distant ridge (Tantalus) -->
+            <path d="M 0 100
+                     C 40 85, 60 60, 90 65
+                     S 140 95, 170 75
+                     S 220 55, 250 70
+                     S 310 85, 360 75" opacity="0.5"/>
+            <!-- Mid ridge -->
+            <path d="M 0 130
+                     C 30 120, 70 100, 100 110
+                     S 160 130, 195 115
+                     S 240 100, 280 115
+                     S 340 125, 360 115" opacity="0.75"/>
+            <!-- Forest line / lake edge -->
+            <path d="M 0 165
+                     C 40 155, 80 170, 120 162
+                     S 200 170, 240 160
+                     S 320 168, 360 160"/>
+            <!-- Water surface -->
+            <path d="M 0 180 C 90 188, 270 175, 360 182" opacity="0.4"/>
+            <!-- A few trees -->
+            <g transform="translate(80 150)" class="thin">
+              <path d="M 0 25 C -2 18, -1 8, 0 2 C 1 8, 2 18, 0 25"/>
+              <path d="M 0 5 C -5 12, -7 16, -3 17"/>
+              <path d="M 0 5 C 5 12, 7 16, 3 17"/>
+            </g>
+            <g transform="translate(265 145)" class="thin">
+              <path d="M 0 30 C -2 22, -1 10, 0 2 C 1 10, 2 22, 0 30"/>
+              <path d="M 0 6 C -6 14, -8 19, -3 20"/>
+              <path d="M 0 6 C 6 14, 8 19, 3 20"/>
+            </g>
+          </g>
+        </svg>
+        <div class="tile-label">Looking north</div>
+      </div>
+
+      <!-- BOTTOM RIGHT TILE: simple loop map -->
+      <div class="tile" style="padding:1.25rem;">
+        <svg viewBox="0 0 360 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <g class="line">
+            <!-- Lake outline (Alice) -->
+            <path d="M 110 95 C 80 60, 220 50, 280 80 C 320 110, 260 160, 180 160 C 110 158, 80 130, 110 95 Z" opacity="0.5"/>
+            <!-- Loop trail in moss color -->
+            <path d="M 100 100
+                     C 70 70, 150 30, 230 40
+                     C 310 50, 340 90, 320 130
+                     C 290 175, 200 185, 130 170
+                     C 80 155, 70 130, 100 100"
+                  stroke="#2b3a2b" stroke-width="2.4" stroke-dasharray="0"/>
+            <!-- Trailhead marker -->
+            <circle cx="100" cy="100" r="6" fill="#2b3a2b" stroke="none"/>
+            <circle cx="100" cy="100" r="3" fill="#f5f1ea" stroke="none"/>
+            <!-- North arrow -->
+            <g transform="translate(330 30)" class="thin" stroke="#6a6258">
+              <path d="M 0 -10 L 0 10"/>
+              <path d="M -4 -4 L 0 -10 L 4 -4"/>
+              <text x="-3" y="22" font-family="Inter, sans-serif" font-size="8" fill="#6a6258" stroke="none" style="font-weight:600;letter-spacing:0.1em;">N</text>
+            </g>
+          </g>
+        </svg>
+        <div class="tile-label">4 Lakes Loop</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== STATS ROW ===================== -->
+  <div class="stats-row">
+    <div class="stat-item">
+      <div class="col">
+        <div class="row"><span class="num">6</span><span class="unit">km</span></div>
+        <div class="lab">Length (loop)</div>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div class="col">
+        <div class="row"><span class="num">120</span><span class="unit">m</span></div>
+        <div class="lab">Elevation gain</div>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div class="col">
+        <div class="row"><span class="num">2&ndash;3</span><span class="unit">hr</span></div>
+        <div class="lab">Estimated time</div>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div class="ic">
+        <svg viewBox="0 0 28 28" class="line" aria-hidden="true">
+          <path d="M 4 14 C 4 8, 9 4, 14 4 C 19 4, 24 8, 24 14 C 24 20, 19 24, 14 24 C 9 24, 4 20, 4 14 Z"/>
+          <path d="M 8 12 L 11 9 L 11 11 L 17 11 L 17 9 L 20 12 L 17 15 L 17 13 L 11 13 L 11 15 Z" class="thin"/>
+        </svg>
+      </div>
+      <div class="col">
+        <div class="row"><span class="num" style="font-size:1.4rem;">Loop</span></div>
+        <div class="lab">Trail type</div>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div class="ic">
+        <svg viewBox="0 0 28 28" class="line" aria-hidden="true">
+          <circle cx="14" cy="14" r="10" stroke-width="1.4" fill="none"/>
+          <circle cx="14" cy="14" r="5" fill="#2b3a2b" stroke="none"/>
+        </svg>
+      </div>
+      <div class="col">
+        <div class="row"><span class="num" style="font-size:1.4rem;">Easy</span></div>
+        <div class="lab">Difficulty</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===================== OVERVIEW ===================== -->
+<section class="overview" id="overview">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <span class="section-eyebrow">Overview</span>
+        <p class="lead">Alice Lake is the no-stress version of an outdoor day on the Sea to Sky. Four warm-water lakes inside one provincial park, a sandy swim beach, a moderate loop trail that touches all four, and a 96-site campground with showers and flush toilets. It&rsquo;s the lake to bring kids, in-laws, or anyone who&rsquo;s nervous about anything more rugged.</p>
+        <p>Drive 13 km north of Squamish on Highway 99, turn east at the brown park sign, and you&rsquo;re in. The pavement runs all the way to the day-use parking lot. Most visitors come for the beach on Alice, but the locals&rsquo; move is the 4 Lakes Loop &mdash; a 6 km circuit that connects Alice, Stump, Fawn, and Edith through second-growth forest. Two to three hours, gentle enough for kids, just enough climb to feel like you did something.</p>
+      </div>
+
+      <aside class="sidecard">
+        <h4>At a glance</h4>
+        <ul>
+          <li><span class="k">Region</span><span class="v">Squamish</span></li>
+          <li><span class="k">Park</span><span class="v">Alice Lake Prov.</span></li>
+          <li><span class="k">Access</span><span class="v">Paved drive-up</span></li>
+          <li><span class="k">Distance</span><span class="v">13 km N of Squamish</span></li>
+          <li><span class="k">Dogs</span><span class="v">On leash</span></li>
+          <li><span class="k">Fees</span><span class="v">Day use free / camp <em>$</em></span></li>
+          <li><span class="k">Best for</span><span class="v">Families, swimming</span></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHAT TO EXPECT ===================== -->
+<section class="expect" id="expect">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">What to Expect</span>
+      <h2>Six things people remember.</h2>
+    </div>
+
+    <div class="expect-grid">
+      <div class="expect-row">
+        <div class="icon">
+          <svg viewBox="0 0 32 32" class="line" aria-hidden="true">
+            <path d="M 3 18 C 8 13, 12 23, 16 18 S 24 13, 29 18"/>
+            <path d="M 3 23 C 8 18, 12 28, 16 23 S 24 18, 29 23" opacity="0.55"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Swim-friendly water</h3>
+          <p>Sandy beach on Alice. Warm by mid-July.</p>
+        </div>
+      </div>
+
+      <div class="expect-row">
+        <div class="icon">
+          <svg viewBox="0 0 32 32" class="line" aria-hidden="true">
+            <path d="M 6 15 C 3 7, 14 3, 22 6 C 30 11, 28 22, 21 26 C 11 29, 3 22, 6 15 Z"/>
+          </svg>
+        </div>
+        <div>
+          <h3>One easy loop</h3>
+          <p>6 km, gentle terrain, 4 lakes, 2&ndash;3 hr.</p>
+        </div>
+      </div>
+
+      <div class="expect-row">
+        <div class="icon">
+          <svg viewBox="0 0 32 32" class="line" aria-hidden="true">
+            <path d="M 6 25 C 11 12, 16 7, 16 7 C 16 7, 21 12, 26 25"/>
+            <path d="M 6 25 L 26 25"/>
+            <path d="M 16 12 L 16 25" opacity="0.55"/>
+          </svg>
+        </div>
+        <div>
+          <h3>96 campsites</h3>
+          <p>Showers, flush toilets. Book ahead in summer.</p>
+        </div>
+      </div>
+
+      <div class="expect-row">
+        <div class="icon">
+          <svg viewBox="0 0 32 32" class="line" aria-hidden="true">
+            <path d="M 3 20 C 11 28, 21 28, 29 20"/>
+            <path d="M 3 20 C 11 24, 21 24, 29 20"/>
+            <path d="M 16 22 L 16 28"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Paddle the small lakes</h3>
+          <p>Stump, Fawn, Edith for the calm morning paddle.</p>
+        </div>
+      </div>
+
+      <div class="expect-row">
+        <div class="icon">
+          <svg viewBox="0 0 32 32" class="line" aria-hidden="true">
+            <path d="M 5 18 C 11 10, 20 10, 25 18 C 20 26, 11 26, 5 18 Z"/>
+            <path d="M 25 18 L 30 14 L 30 22 Z"/>
+            <circle cx="11" cy="17" r="0.9"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Stocked trout</h3>
+          <p>Alice &amp; Edith. BC freshwater licence required.</p>
+        </div>
+      </div>
+
+      <div class="expect-row">
+        <div class="icon">
+          <svg viewBox="0 0 32 32" class="line" aria-hidden="true">
+            <path d="M 3 21 C 3 17, 5 15, 9 15 L 12 10 C 14 8, 20 8, 22 10 L 25 15 C 28 15, 29 17, 29 21 L 29 25 L 3 25 Z"/>
+            <circle cx="9" cy="25" r="2"/>
+            <circle cx="23" cy="25" r="2"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Paved drive from town</h3>
+          <p>13 km N of Squamish; ~90 min from Vancouver.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RENTALS ===================== -->
+<section class="water" id="water">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Get a Boat on the Water</span>
+      <h2>Two ways to paddle Alice.</h2>
+    </div>
+
+    <div class="water-cards">
+      <div class="water-card">
+        <div class="ic">
+          <svg viewBox="0 0 40 40" class="line" aria-hidden="true">
+            <path d="M 3 23 C 13 32, 27 32, 37 23"/>
+            <path d="M 3 23 C 13 27, 27 27, 37 23"/>
+            <path d="M 20 25 L 20 32"/>
+            <path d="M 12 7 C 16 13, 20 21, 24 27"/>
+            <path d="M 10 5 C 9 3, 14 1, 14 5"/>
+          </svg>
+        </div>
+        <h3>Canoe Delivery</h3>
+        <p>Hand-delivered to your campsite. Paddles, PFDs included. Up to three paddlers per boat.</p>
+        <a href="https://squamishcanoerental.com/canoe-delivery-squamish/" class="cta">Book a canoe</a>
+      </div>
+
+      <div class="water-card">
+        <div class="ic">
+          <svg viewBox="0 0 40 40" class="line" aria-hidden="true">
+            <path d="M 6 32 C 15 36, 25 36, 34 32 C 25 30, 15 30, 6 32 Z"/>
+            <circle cx="20" cy="10" r="2.5"/>
+            <path d="M 20 13 L 20 28"/>
+            <path d="M 20 17 L 26 14"/>
+            <path d="M 28 4 L 28 29"/>
+            <path d="M 26 4 L 30 4"/>
+          </svg>
+        </div>
+        <h3>Paddleboard Delivery</h3>
+        <p>Stand-up boards delivered to the same spot. Good for the calmer mornings on Stump &amp; Fawn.</p>
+        <a href="https://squamishcanoerental.com/paddleboard-delivery-squamish/" class="cta">Book a board</a>
+      </div>
+    </div>
+
+    <div class="closure-note">
+      <strong>Field Note &middot; the early-season closure</strong>
+      The on-site rental hut at Alice Lake is closed in <em>April and May</em>. If you&rsquo;re here before the long weekend, delivery from town is the only rental option. Worth booking ahead — the trucks fill up fast in shoulder season.
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THE FOUR LAKES ===================== -->
+<section class="deep" id="lakes">
+  <div class="wrap-narrow">
+    <div class="section-head">
+      <span class="section-eyebrow">The Lakes</span>
+      <h2>Four lakes, one loop.</h2>
+    </div>
+
+    <div class="lake-rows">
+      <div class="lake">
+        <div class="name">Alice</div>
+        <div class="desc">The big one. Sandy beach, day-use docks, picnic shelters, lifejacket loaner board. Swim here. Paddle here in the afternoons after the morning crowd thins.</div>
+      </div>
+      <div class="lake">
+        <div class="name">Stump</div>
+        <div class="desc">Smaller, quieter, motor-free. The local pick for an early-morning paddle when Alice is still in the shadow. Good for a calm SUP session.</div>
+      </div>
+      <div class="lake">
+        <div class="name">Fawn</div>
+        <div class="desc">The smallest of the four. More wetland than swimmable lake — bring binoculars, expect birds. A waypoint on the loop more than a destination.</div>
+      </div>
+      <div class="lake">
+        <div class="name">Edith</div>
+        <div class="desc">Stocked with trout. A handful of bench-style fishing spots along the shore. Quiet enough that a heron will paddle past while you cast.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHEN ===================== -->
+<section class="deep" id="season">
+  <div class="wrap-narrow">
+    <div class="section-head">
+      <span class="section-eyebrow">When to Go</span>
+      <h2>Pick the season, then book early.</h2>
+    </div>
+
+    <div class="seasons">
+      <div>
+        <div class="sn">Apr &ndash; May</div>
+        <div class="sd">Quiet, often muddy. Rental hut closed. Bring rain gear.</div>
+      </div>
+      <div>
+        <div class="sn">Jun &ndash; Jul</div>
+        <div class="sd">Water warms by late June. Reserve a campsite four months ahead.</div>
+      </div>
+      <div>
+        <div class="sn">Aug &ndash; early Sep</div>
+        <div class="sd">Hot, crowded, glorious. Mid-week is the only quiet at the swim beach.</div>
+      </div>
+      <div>
+        <div class="sn">Sep &ndash; Oct</div>
+        <div class="sd">The locals&rsquo; season. Colour turns. Bug-free. Brisk water.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REVIEWS ===================== -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+
+    <div class="reviews-head">
+      <div class="review-summary">
+        <div class="big">4.8</div>
+        <div class="meta">
+          <div class="stars-big">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="count">Based on 47 reader reviews</div>
+        </div>
+      </div>
+      <a href="mailto:hello@seatoskytrails.com?subject=Alice%20Lake%20review" class="leave-review">Leave a review</a>
+    </div>
+
+    <div class="review-grid">
+
+      <div class="review-card">
+        <div class="top">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="when">Aug 2025</span>
+        </div>
+        <p>&ldquo;Best canoe rental experience we&rsquo;ve had. Jeremy delivered the canoe right to our campsite at Alice Lake. Everything was included and the boat was in great shape. Super easy and affordable. Will definitely be back!&rdquo;</p>
+        <div>
+          <span class="who">Sarah M.</span>
+          <span class="src">Google review</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="top">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="when">Jul 2025</span>
+        </div>
+        <p>&ldquo;Got set up super quickly. We grabbed the seat upgrade which made the paddle way more comfortable. Already planning another rental at Alice Lake next month.&rdquo;</p>
+        <div>
+          <span class="who">Chris C.</span>
+          <span class="src">Google review</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="top">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="when">Jun 2025</span>
+        </div>
+        <p>&ldquo;Did the 4 Lakes Loop with our two kids and stopped to swim at every one. Took us about three hours including snack stops. Trail is well-marked, totally manageable for little legs.&rdquo;</p>
+        <div>
+          <span class="who">Amanda K.</span>
+          <span class="src">Reader letter</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="top">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;<span style="color:var(--ink-mute);">&#9733;</span></span>
+          <span class="when">Aug 2025</span>
+        </div>
+        <p>&ldquo;Beautiful park, but if you come on a weekend in August the day-use parking fills by 10am. Get there at 8 or skip the beach and paddle one of the back lakes — way quieter.&rdquo;</p>
+        <div>
+          <span class="who">Mckinley H.</span>
+          <span class="src">Reader letter</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="top">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="when">Sep 2025</span>
+        </div>
+        <p>&ldquo;Came in shoulder season for the colour change on the loop. Bug-free, almost empty, brisk water but I still swam at Edith. The locals&rsquo; secret is real.&rdquo;</p>
+        <div>
+          <span class="who">Tyler &amp; Jess</span>
+          <span class="src">Reader letter</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="top">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="when">May 2025</span>
+        </div>
+        <p>&ldquo;Booked a canoe delivery for early May since the on-site hut was closed. Jeremy met us right at our campsite at 9am. Made the whole trip work — wouldn&rsquo;t have happened otherwise.&rdquo;</p>
+        <div>
+          <span class="who">Dave R.</span>
+          <span class="src">Google review</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HONEST NOTE ===================== -->
+<section class="honest">
+  <div class="wrap-narrow">
+    <div class="section-head">
+      <span class="section-eyebrow">Honest Note</span>
+      <h2>What the brochures leave out.</h2>
+    </div>
+    <p>Alice Lake is a family park. <em>It gets busy.</em> Summer weekends fill the beach by 11 a.m. and the parking lot turns over slowly. If quiet is what you came for, plan around it &mdash; weekday morning, shoulder season, or the further-out lakes on the loop.</p>
+    <p>Bear sightings happen. Lock food, use the bear-proof bins, and don&rsquo;t leave dishes at the campsite overnight. There&rsquo;s a small chance of seeing a black bear, a near certainty of seeing crows working over an unattended picnic.</p>
+    <p>The park sits on Sḵwx̱wú7mesh (Squamish) Nation territory. Pack out what you bring. The lake remembers everyone who came before you.</p>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>The Guide</h4>
+        <p>Alice Lake is an entry in the Sea to Sky Trails &mdash; a slow-built field guide to the lakes, hikes, and outposts of the Coast Mountains.</p>
+      </div>
+      <div>
+        <h4>More Field Guides</h4>
+        <ul>
+          <li><a href="https://lakelovelywater.com/">Lake Lovely Water</a></li>
+          <li><a href="https://echolakesquamish.com/">Echo Falls &amp; Echo Lake</a></li>
+          <li><a href="https://levettelake.com/">Levette Lake</a></li>
+          <li><a href="https://callahanlake.com/">Callaghan Lake</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get a Boat</h4>
+        <ul>
+          <li><a href="https://squamishcanoerental.com/canoe-delivery-squamish/">Canoe delivery</a></li>
+          <li><a href="https://squamishcanoerental.com/paddleboard-delivery-squamish/">Paddleboard delivery</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div><em>Sea to Sky Trails</em> &middot; Vol. I, No. 03 &middot; Published in Sḵwx̱wú7mesh territory.</div>
+      <div>Set in Fraunces &amp; Inter. Reader-funded.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
