@@ -10,13 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #f5f1ea;
-    --paper-deep: #ece6db;
-    --paper-card: #faf6ee;
-    --ink: #1c1917;
+    --paper: #ffffff;
+    --paper-warm: #faf6ee;
+    --paper-deep: #f1ece0;
+    --paper-card: #ffffff;
+    --ink: #0f0e0c;
     --ink-soft: #2d2922;
     --ink-mute: #6a6258;
-    --rule: #cdc6b8;
+    --rule: #e3ddd0;
+    --rule-strong: #cdc6b8;
     --moss: #2b3a2b;
     --rust: #8a4a2c;
     --gold: #b5832e;
@@ -78,7 +80,7 @@
   /* ---------- NAV ---------- */
   nav.top {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(245,241,234,0.94);
+    background: rgba(255,255,255,0.95);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--rule);
   }
@@ -156,6 +158,14 @@
     border-bottom: 1px solid var(--rule);
     display: flex; gap: 2rem;
     overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    flex-wrap: nowrap;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  @media (max-width: 680px) {
+    .tabs { gap: 1.5rem; }
+    .tabs a { font-size: 0.88rem; padding: 0.75rem 0 0.85rem; }
   }
   .tabs a {
     padding: 0.85rem 0 0.95rem;
@@ -169,58 +179,70 @@
   .tabs a:hover { color: var(--ink); }
   .tabs a.active { color: var(--ink); border-bottom-color: var(--ink); }
 
-  /* ---------- HERO COLLAGE ---------- */
-  .collage {
+  /* ---------- HERO LAYOUT ---------- */
+  .hero-layout {
     margin: 1.5rem 0 0;
     display: grid;
-    grid-template-columns: 1.65fr 1fr;
-    gap: 0.5rem;
-    aspect-ratio: 21 / 9;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+  @media (max-width: 860px) {
+    .hero-layout { grid-template-columns: 1fr; gap: 1.25rem; }
+  }
+  .hero-photo {
+    background-size: cover;
+    background-position: center;
+    background-color: var(--paper-deep);
+    border-radius: 6px;
+    aspect-ratio: 4 / 3;
     min-height: 380px;
-  }
-  @media (max-width: 760px) {
-    .collage { grid-template-columns: 1fr; aspect-ratio: auto; min-height: 0; }
-  }
-  .tile {
-    background: var(--paper-card);
     border: 1px solid var(--rule);
-    border-radius: 4px;
-    position: relative;
-    overflow: hidden;
-    color: var(--ink-soft);
   }
-  .tile-main { grid-row: 1 / -1; padding: 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-  .collage-right { display: grid; grid-template-rows: 1fr 1fr; gap: 0.5rem; }
-  @media (max-width: 760px) {
-    .collage-right { grid-template-rows: 1fr 1fr; aspect-ratio: 21/9; }
-    .tile-main { min-height: 280px; }
+  @media (max-width: 860px) {
+    .hero-photo { aspect-ratio: 16/10; min-height: 240px; }
   }
-  .tile svg { display: block; width: 100%; height: 100%; max-height: 360px; }
-  .tile-badge {
-    position: absolute; left: 1rem; bottom: 1rem;
-    background: rgba(245,241,234,0.92);
-    backdrop-filter: blur(4px);
+  .hero-details {
+    display: flex; flex-direction: column;
+    gap: 1rem;
+  }
+  .details-card {
     border: 1px solid var(--rule);
-    border-radius: 999px;
-    padding: 0.45rem 0.95rem;
+    border-radius: 6px;
+    background: var(--paper-warm);
+    padding: 1.5rem;
+  }
+  .details-card h3 {
     font-family: "Inter", sans-serif;
-    font-size: 0.7rem; font-weight: 600;
-    letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--ink);
-    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600; color: var(--ink-mute);
+    margin: 0 0 1.25rem;
   }
-  .tile-badge svg { width: 14px; height: 14px; }
-  .tile-label {
-    position: absolute; right: 1rem; top: 1rem;
-    font-family: "Fraunces", serif; font-style: italic; font-size: 0.85rem;
-    color: var(--ink-mute);
+  .details-card .row {
+    display: grid; grid-template-columns: 28px 1fr auto;
+    gap: 0.85rem;
+    align-items: center;
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--rule);
   }
+  .details-card .row:first-of-type { border-top: none; padding-top: 0; }
+  .details-card .row:last-of-type { padding-bottom: 0; }
+  .details-card .row .ic { color: var(--moss); }
+  .details-card .row .ic svg { width: 24px; height: 24px; display: block; }
+  .details-card .row .k {
+    font-family: "Inter", sans-serif;
+    font-size: 0.92rem; color: var(--ink-mute); font-weight: 500;
+  }
+  .details-card .row .v {
+    font-family: "Fraunces", serif;
+    font-size: 1.15rem; font-weight: 500; color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .details-card .row .v.small { font-size: 1rem; }
 
   /* ---------- STATS ROW ---------- */
   .stats-row {
-    display: flex; gap: 2.5rem; flex-wrap: wrap;
-    padding: 2rem 0;
-    border-bottom: 1px solid var(--rule);
+    display: none;
   }
   .stat-item { display: flex; align-items: center; gap: 0.85rem; }
   .stat-item .num {
@@ -304,8 +326,8 @@
 
   /* ---------- RENTALS ---------- */
   section.water { padding: 3.5rem 0; background: var(--paper-deep); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-  .water-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
-  @media (max-width: 760px) { .water-cards { grid-template-columns: 1fr; } }
+  .water-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
+  @media (max-width: 900px) { .water-cards { grid-template-columns: 1fr; } }
   .water-card {
     background: var(--paper);
     border: 1px solid var(--rule);
@@ -432,19 +454,38 @@
     stroke-linejoin: round;
   }
   .line.thin { stroke-width: 1.1; }
+
+  /* ---------- FAQ ---------- */
+  .faq-list { margin-top: 2rem; border-top: 1px solid var(--rule); }
+  details.faq-item { border-bottom: 1px solid var(--rule); }
+  details.faq-item > summary {
+    list-style: none; cursor: pointer; outline: none;
+    padding: 1.5rem 0;
+    display: grid; grid-template-columns: 2rem 1fr 1.5rem; gap: 1rem;
+    align-items: baseline;
+    font-family: "Fraunces", serif; font-weight: 500;
+    font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.012em;
+    color: var(--ink);
+  }
+  details.faq-item > summary::-webkit-details-marker { display: none; }
+  details.faq-item > summary:hover { color: var(--moss); }
+  .faq-item .q-n { font-family: "Fraunces", serif; font-style: italic; color: var(--ink-mute); font-size: 0.95rem; }
+  .faq-item .q-plus {
+    font-family: "Inter", sans-serif; font-weight: 300; font-size: 1.5rem;
+    color: var(--ink-mute); justify-self: end; line-height: 1;
+    transition: transform 0.2s;
+  }
+  details.faq-item[open] > summary .q-plus { transform: rotate(45deg); }
+  .faq-item .a { padding: 0 1.5rem 1.75rem 3rem; }
+  @media (max-width: 700px){ .faq-item .a { padding: 0 0 1.5rem 0; } }
+  .faq-item .a p { font-size: 1rem; margin: 0 0 0.9rem; color: var(--ink-soft); }
+  .faq-item .a p:last-child { margin: 0; }
+  .faq-item .a a { border-bottom: 1px solid var(--rule); transition: border-color 0.2s; }
+  .faq-item .a a:hover { border-bottom-color: var(--ink); }
 </style>
 </head>
 <body>
 
-<!-- ===================== COORDS ===================== -->
-<div class="coords">
-  <div class="inner">
-    <span>49° 47′ N &nbsp;·&nbsp; 123° 07′ W</span>
-    <span>Vol. I &nbsp;·&nbsp; No. 03</span>
-    <span>Squamish &mdash; Sea to Sky</span>
-    <span>Updated Spring 2026</span>
-  </div>
-</div>
 
 <!-- ===================== NAV ===================== -->
 <nav class="top">
@@ -458,6 +499,7 @@
       <a href="#expect">What to expect</a>
       <a href="#water">Rentals</a>
       <a href="#reviews">Reviews</a>
+      <a href="#faq">Questions</a>
     </div>
   </div>
 </nav>
@@ -466,11 +508,7 @@
 <div class="wrap">
 
   <div class="breadcrumb">
-    <a href="https://seatoskytrails.com/">Field Guide</a>
-    <span class="sep">/</span>
-    <a href="#">British Columbia</a>
-    <span class="sep">/</span>
-    <a href="#">Squamish</a>
+    <a href="https://seatoskytrails.com/">Trails</a>
     <span class="sep">/</span>
     <span class="here">Alice Lake</span>
   </div>
@@ -500,137 +538,101 @@
     </div>
   </div>
 
-  <!-- ===================== HERO COLLAGE ===================== -->
-  <div class="collage">
+  <!-- ===================== HERO LAYOUT ===================== -->
+  <div class="hero-layout">
 
-    <!-- MAIN TILE: flowing four-lakes illustration -->
-    <div class="tile tile-main">
-      <svg viewBox="0 0 700 380" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-        <g class="line">
-          <!-- Alice (biggest, center) -->
-          <path d="M 230 245 C 200 215, 360 195, 460 220 C 540 245, 470 290, 380 295 C 290 298, 200 280, 230 245 Z"/>
-          <!-- Stump (top left) -->
-          <path d="M 95 110 C 85 90, 175 80, 215 105 C 240 125, 195 145, 145 140 C 105 135, 85 125, 95 110 Z" class="thin"/>
-          <!-- Fawn (top center) -->
-          <path d="M 320 75 C 310 55, 425 50, 470 80 C 500 105, 435 115, 380 110 C 335 105, 325 90, 320 75 Z" class="thin"/>
-          <!-- Edith (right) -->
-          <path d="M 540 165 C 530 145, 660 145, 700 175 C 720 200, 645 215, 590 210 C 545 205, 525 185, 540 165 Z" class="thin"/>
+    <!-- LEFT: photo only, no overlays -->
+    <div class="hero-photo" style="background-image:url('https://images.pexels.com/photos/19157320/pexels-photo-19157320.jpeg?auto=compress&cs=tinysrgb&w=1600');" role="img" aria-label="Alice Lake — swim platform on the lake in Alice Lake Provincial Park"></div>
 
-          <!-- Cursive trail loop -->
-          <path d="M 165 130
-                   C 195 165, 235 195, 290 220
-                   C 320 235, 330 250, 380 260
-                   C 460 270, 540 240, 590 210
-                   C 660 185, 720 170, 695 145
-                   C 660 110, 540 100, 460 90
-                   C 380 85, 320 90, 260 100
-                   C 220 105, 185 110, 165 130"
-                stroke-dasharray="2 6" opacity="0.45"/>
+    <!-- RIGHT: trail details panel -->
+    <div class="hero-details">
+      <div class="details-card">
+        <h3>Trail Details</h3>
 
-          <!-- Tiny flowing canoe on Alice -->
-          <path d="M 305 260 C 320 270, 380 270, 395 260" class="thin"/>
-          <path d="M 305 260 C 320 264, 380 264, 395 260" class="thin"/>
+        <div class="row">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" class="line" aria-hidden="true">
+              <path d="M 4 16 C 4 8, 14 8, 14 16 C 14 20, 20 20, 20 14"/>
+              <path d="M 4 18 L 8 14 L 12 18"/>
+            </svg>
+          </div>
+          <div class="k">Length</div>
+          <div class="v">6 km</div>
+        </div>
 
-          <!-- Two flowing trees -->
-          <g transform="translate(50 220)" class="thin">
-            <path d="M 0 60 C -2 45, -1 25, 0 5 C 1 25, 2 45, 0 60"/>
-            <path d="M 0 10 C -10 22, -14 30, -7 32"/>
-            <path d="M 0 10 C 10 22, 14 30, 7 32"/>
-          </g>
-          <g transform="translate(65 280)" class="thin">
-            <path d="M 0 40 C -2 30, -1 15, 0 4 C 1 15, 2 30, 0 40"/>
-            <path d="M 0 8 C -7 16, -9 20, -4 21"/>
-            <path d="M 0 8 C 7 16, 9 20, 4 21"/>
-          </g>
-        </g>
-        <!-- Italic labels -->
-        <g font-family="Fraunces, serif" font-style="italic" font-size="13" fill="#6a6258">
-          <text x="135" y="160">Stump</text>
-          <text x="370" y="135">Fawn</text>
-          <text x="600" y="240">Edith</text>
-          <text x="320" y="318">Alice</text>
-        </g>
-      </svg>
-      <div class="tile-badge">
-        <svg viewBox="0 0 14 14" class="line" aria-hidden="true">
-          <path d="M 7 2 C 3 4, 3 9, 7 12 C 11 9, 11 4, 7 2 Z"/>
-        </svg>
-        Field Map
+        <div class="row">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" class="line" aria-hidden="true">
+              <path d="M 3 18 L 9 10 L 13 14 L 21 4"/>
+              <path d="M 21 4 L 21 9 M 21 4 L 16 4"/>
+            </svg>
+          </div>
+          <div class="k">Elevation gain</div>
+          <div class="v">120 m</div>
+        </div>
+
+        <div class="row">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" class="line" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M 12 7 L 12 12 L 15 14"/>
+            </svg>
+          </div>
+          <div class="k">Estimated time</div>
+          <div class="v">2&ndash;3 hr</div>
+        </div>
+
+        <div class="row">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" class="line" aria-hidden="true">
+              <path d="M 6 12 C 6 7, 11 4, 14 6 C 18 7, 20 12, 17 15 C 14 18, 9 17, 7 14 Z"/>
+              <path d="M 17 15 L 20 18"/>
+              <path d="M 18 17 L 19 19" opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="k">Trail type</div>
+          <div class="v small">Loop</div>
+        </div>
+
+        <div class="row">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" class="line" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/>
+              <circle cx="12" cy="12" r="4" fill="#2b3a2b" stroke="none"/>
+            </svg>
+          </div>
+          <div class="k">Difficulty</div>
+          <div class="v small">Easy</div>
+        </div>
+
+        <div class="row">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" class="line" aria-hidden="true">
+              <path d="M 12 22 C 7 17, 4 13, 4 9 C 4 5, 7 3, 12 3 C 17 3, 20 5, 20 9 C 20 13, 17 17, 12 22 Z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+          </div>
+          <div class="k">Park</div>
+          <div class="v small">Alice Lake Prov.</div>
+        </div>
+
+        <div class="row">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" class="line" aria-hidden="true">
+              <path d="M 5 16 C 5 12, 7 10, 11 10 L 13 7 C 14 6, 18 6, 19 7 L 19 10 C 21 11, 22 13, 22 16 L 22 18 L 5 18 Z" />
+              <circle cx="9" cy="18" r="1.5"/>
+              <circle cx="18" cy="18" r="1.5"/>
+            </svg>
+          </div>
+          <div class="k">Dogs</div>
+          <div class="v small">On leash</div>
+        </div>
       </div>
     </div>
 
-    <div class="collage-right">
-
-      <!-- TOP RIGHT TILE: alpine view -->
-      <div class="tile" style="padding:1.25rem;">
-        <svg viewBox="0 0 360 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-          <g class="line">
-            <!-- Distant ridge (Tantalus) -->
-            <path d="M 0 100
-                     C 40 85, 60 60, 90 65
-                     S 140 95, 170 75
-                     S 220 55, 250 70
-                     S 310 85, 360 75" opacity="0.5"/>
-            <!-- Mid ridge -->
-            <path d="M 0 130
-                     C 30 120, 70 100, 100 110
-                     S 160 130, 195 115
-                     S 240 100, 280 115
-                     S 340 125, 360 115" opacity="0.75"/>
-            <!-- Forest line / lake edge -->
-            <path d="M 0 165
-                     C 40 155, 80 170, 120 162
-                     S 200 170, 240 160
-                     S 320 168, 360 160"/>
-            <!-- Water surface -->
-            <path d="M 0 180 C 90 188, 270 175, 360 182" opacity="0.4"/>
-            <!-- A few trees -->
-            <g transform="translate(80 150)" class="thin">
-              <path d="M 0 25 C -2 18, -1 8, 0 2 C 1 8, 2 18, 0 25"/>
-              <path d="M 0 5 C -5 12, -7 16, -3 17"/>
-              <path d="M 0 5 C 5 12, 7 16, 3 17"/>
-            </g>
-            <g transform="translate(265 145)" class="thin">
-              <path d="M 0 30 C -2 22, -1 10, 0 2 C 1 10, 2 22, 0 30"/>
-              <path d="M 0 6 C -6 14, -8 19, -3 20"/>
-              <path d="M 0 6 C 6 14, 8 19, 3 20"/>
-            </g>
-          </g>
-        </svg>
-        <div class="tile-label">Looking north</div>
-      </div>
-
-      <!-- BOTTOM RIGHT TILE: simple loop map -->
-      <div class="tile" style="padding:1.25rem;">
-        <svg viewBox="0 0 360 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-          <g class="line">
-            <!-- Lake outline (Alice) -->
-            <path d="M 110 95 C 80 60, 220 50, 280 80 C 320 110, 260 160, 180 160 C 110 158, 80 130, 110 95 Z" opacity="0.5"/>
-            <!-- Loop trail in moss color -->
-            <path d="M 100 100
-                     C 70 70, 150 30, 230 40
-                     C 310 50, 340 90, 320 130
-                     C 290 175, 200 185, 130 170
-                     C 80 155, 70 130, 100 100"
-                  stroke="#2b3a2b" stroke-width="2.4" stroke-dasharray="0"/>
-            <!-- Trailhead marker -->
-            <circle cx="100" cy="100" r="6" fill="#2b3a2b" stroke="none"/>
-            <circle cx="100" cy="100" r="3" fill="#f5f1ea" stroke="none"/>
-            <!-- North arrow -->
-            <g transform="translate(330 30)" class="thin" stroke="#6a6258">
-              <path d="M 0 -10 L 0 10"/>
-              <path d="M -4 -4 L 0 -10 L 4 -4"/>
-              <text x="-3" y="22" font-family="Inter, sans-serif" font-size="8" fill="#6a6258" stroke="none" style="font-weight:600;letter-spacing:0.1em;">N</text>
-            </g>
-          </g>
-        </svg>
-        <div class="tile-label">4 Lakes Loop</div>
-      </div>
-
-    </div>
   </div>
 
-  <!-- ===================== STATS ROW ===================== -->
+  <!-- ===================== STATS ROW (legacy, hidden) ===================== -->
   <div class="stats-row">
     <div class="stat-item">
       <div class="col">
@@ -818,7 +820,7 @@
         </div>
         <h3>Canoe Delivery</h3>
         <p>Hand-delivered to your campsite. Paddles, PFDs included. Up to three paddlers per boat.</p>
-        <a href="https://squamishcanoerental.com/canoe-delivery-squamish/" class="cta">Book a canoe</a>
+        <a href="https://rentedlocal.com/Profile?userId=698a2b3bca1e37a683b7bfeb" target="_blank" rel="noopener" class="cta">Book a canoe</a>
       </div>
 
       <div class="water-card">
@@ -834,7 +836,25 @@
         </div>
         <h3>Paddleboard Delivery</h3>
         <p>Stand-up boards delivered to the same spot. Good for the calmer mornings on Stump &amp; Fawn.</p>
-        <a href="https://squamishcanoerental.com/paddleboard-delivery-squamish/" class="cta">Book a board</a>
+        <a href="https://rentedlocal.com/Profile?userId=698a2b3bca1e37a683b7bfeb" target="_blank" rel="noopener" class="cta">Book a board</a>
+      </div>
+
+      <div class="water-card">
+        <div class="ic">
+          <svg viewBox="0 0 40 40" class="line" aria-hidden="true">
+            <!-- Compass — cursive single-line guide mark -->
+            <circle cx="20" cy="20" r="14"/>
+            <path d="M 14 26 C 17 22, 19 18, 22 14 C 23 17, 22 19, 20 22 C 18 24, 16 25, 14 26 Z"/>
+            <circle cx="20" cy="20" r="1.5" fill="currentColor" stroke="none"/>
+            <path d="M 20 4 L 20 7" opacity="0.55"/>
+            <path d="M 36 20 L 33 20" opacity="0.55"/>
+            <path d="M 20 36 L 20 33" opacity="0.55"/>
+            <path d="M 4 20 L 7 20" opacity="0.55"/>
+          </svg>
+        </div>
+        <h3>Hire a Guide</h3>
+        <p>Local guide for the full Alice Lake day &mdash; the swim spots, the 4-lakes loop pace, the family-friendly version. Best for first-timers or groups who want logistics handled.</p>
+        <a href="https://rentedlocal.com/Profile?userId=698a2b3bca1e37a683b7bfeb" target="_blank" rel="noopener" class="cta">Book a guide</a>
       </div>
     </div>
 
@@ -1008,6 +1028,71 @@
   </div>
 </section>
 
+<!-- ===================== FAQ ===================== -->
+<section class="deep" id="faq">
+  <div class="wrap-narrow">
+    <div class="section-head">
+      <span class="section-eyebrow">Questions &amp; Answers</span>
+      <h2>The questions people actually ask about Alice Lake.</h2>
+    </div>
+
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary><span class="q-n">01</span><span class="q-t">Can you swim at Alice Lake?</span><span class="q-plus">+</span></summary>
+        <div class="a">
+          <p>Yes. Alice has a sandy main beach (South Beach) with a roped swim area and a floating dock a short walk from the campground. The water is shallow and warms up nicely by mid-July, which is what makes it the family swim lake of the Sea to Sky. There are no lifeguards — like all BC Parks lakes, you swim at your own risk, so keep an eye on kids.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span class="q-n">02</span><span class="q-t">Do you need a reservation to camp at Alice Lake?</span><span class="q-plus">+</span></summary>
+        <div class="a">
+          <p>For July, August, and September — effectively yes. The campground (just under 100 reservable sites, with showers and flush toilets) books out months ahead and is often full even mid-week in peak summer. Reserve through BC Parks as far in advance as the booking window allows. Shoulder-season weekdays in spring and fall are the exception, when walk-up sites can open up.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span class="q-n">03</span><span class="q-t">Are there canoe and paddleboard rentals at Alice Lake — and when are they open?</span><span class="q-plus">+</span></summary>
+        <div class="a">
+          <p>There's a seasonal on-site rental stand at the main beach, but the window is short: roughly late June to early September, and only Thursday through Monday. It's <em>closed in April and May</em> entirely — the detail that catches out early-season visitors.</p>
+          <p>If you're here before the long weekend, in the off days, or you'd rather have a boat waiting at your campsite, <a href="https://squamishcanoerental.com/canoe-delivery-squamish/">Squamish Canoe Rental delivers canoes</a> and <a href="https://squamishcanoerental.com/paddleboard-delivery-squamish/">stand-up paddleboards</a> right to Alice Lake — paddles and PFDs included, up to three paddlers per canoe.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span class="q-n">04</span><span class="q-t">Is Alice Lake good for young kids and families?</span><span class="q-plus">+</span></summary>
+        <div class="a">
+          <p>It's the easiest outdoor day on the corridor. The pavement runs all the way to the parking lot, the beach is sandy and shallow, and the 4 Lakes Loop is a gentle 6 km that little legs can handle in two to three hours. Bring a canoe and you can turn the calmer back lakes (Stump, Fawn, Edith) into the highlight of the trip.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span class="q-n">05</span><span class="q-t">Are dogs allowed at Alice Lake?</span><span class="q-plus">+</span></summary>
+        <div class="a">
+          <p>Yes, on leash — but with one catch people miss: dogs are <em>not</em> permitted on the Alice Lake beach, in the picnic areas, or on the Alice Lake Loop Trail. They're fine on leash elsewhere in the park and on the wider 4 Lakes Loop. Plan your swim spot accordingly.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span class="q-n">06</span><span class="q-t">Can you fish at Alice Lake?</span><span class="q-plus">+</span></summary>
+        <div class="a">
+          <p>Yes. The lakes are stocked with rainbow trout — Edith and Stump are the quieter bets, with a few bench-style spots along the shore. You'll need a BC freshwater fishing licence, which you can buy online before you come.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary><span class="q-n">07</span><span class="q-t">How busy does Alice Lake get, and when should I go?</span><span class="q-plus">+</span></summary>
+        <div class="a">
+          <p>Summer weekends fill the day-use parking by 10–11 a.m. and the beach soon after. If quiet is the goal, come on a weekday morning, or wait for September — the locals' season, when the colour turns, the bugs are gone, and the water's still swimmable if you're brave. Either way, get a boat on the water early and paddle one of the back lakes while the main beach fills up.</p>
+          <p>Planning a paddle? See the rest of the <a href="https://seatoskytrails.com/">Sea to Sky Trails</a> guides for nearby <a href="https://levettelake.com/">Levette Lake</a> and the <a href="https://echolakesquamish.com/">Echo Falls</a> crossing.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
 <!-- ===================== FOOTER ===================== -->
 <footer class="foot">
   <div class="wrap">
@@ -1039,6 +1124,51 @@
     </div>
   </div>
 </footer>
+
+<!-- ===================== FAQ STRUCTURED DATA ===================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can you swim at Alice Lake?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Alice Lake has a sandy main beach (South Beach) with a roped swim area and a floating dock a short walk from the campground. The water is shallow and warms up by mid-July, which makes it the family swim lake of the Sea to Sky. There are no lifeguards, so you swim at your own risk." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you need a reservation to camp at Alice Lake?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For July, August and September, effectively yes. The campground has just under 100 reservable sites with showers and flush toilets, and it books out months ahead and is often full even mid-week in peak summer. Reserve through BC Parks as far in advance as possible. Shoulder-season weekdays in spring and fall are the exception." }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there canoe and paddleboard rentals at Alice Lake, and when are they open?",
+      "acceptedAnswer": { "@type": "Answer", "text": "There is a seasonal on-site rental stand at the main beach, open roughly late June to early September, Thursday through Monday, and closed in April and May entirely. If you are here before the long weekend, on the off days, or want a boat delivered to your campsite, Squamish Canoe Rental delivers canoes and stand-up paddleboards to Alice Lake with paddles and PFDs included, up to three paddlers per canoe." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Alice Lake good for young kids and families?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It is the easiest outdoor day on the corridor. The pavement runs all the way to the parking lot, the beach is sandy and shallow, and the 4 Lakes Loop is a gentle 6 km that takes two to three hours. The calmer back lakes (Stump, Fawn, Edith) are ideal for a family canoe or paddleboard." }
+    },
+    {
+      "@type": "Question",
+      "name": "Are dogs allowed at Alice Lake?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, on leash, but dogs are not permitted on the Alice Lake beach, in the picnic areas, or on the Alice Lake Loop Trail. They are allowed on leash elsewhere in the park and on the wider 4 Lakes Loop." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you fish at Alice Lake?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The lakes are stocked with rainbow trout, with Edith and Stump the quieter options. You need a BC freshwater fishing licence, which can be bought online before you arrive." }
+    },
+    {
+      "@type": "Question",
+      "name": "How busy does Alice Lake get, and when should I go?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Summer weekends fill the day-use parking by 10 to 11 a.m. and the beach soon after. For quiet, come on a weekday morning or wait for September, the locals' season with fall colour, no bugs, and still-swimmable water. Getting a boat on the water early lets you paddle a back lake while the main beach fills up." }
+    }
+  ]
+}
+</script>
 
 </body>
 </html>
